@@ -3,7 +3,7 @@
     import { tool, color, brushSize } from '$lib/stores/paint';
 
     let canvas: HTMLCanvasElement;
-    let ctx: CanvasRenderingContext2D | null = null;
+    let ctx!: CanvasRenderingContext2D;
     let drawing = false;
 
     function startDraw(e: MouseEvent) {
@@ -29,7 +29,7 @@
     }
 
     onMount(() => {
-        ctx = canvas.getContext('2d');
+        ctx = canvas.getContext('2d')!;
         if (ctx) {
             ctx.fillStyle = '#ffffff';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
